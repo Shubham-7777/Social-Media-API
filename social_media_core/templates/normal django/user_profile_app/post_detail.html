@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% load static  %}
+{% block title %}
+
+<title> Detail </title>
+{% endblock title %}
+
+{% block content %}
+
+<div class='container'>
+    
+    <div class="mx-auto" style="width: 500px;">
+        {% for i in obj %}    
+            {% if i.post_image %}
+                <img src="{{ i.post_image.url }}" class="card-img-top"</a>
+            {% endif %}
+            <a href="{{ i.get_absolute_url }}"></a>
+            <h5 class="card-title">{{ i.username }}</h5></a>
+            <p class="card-text">{{ i.post_text }}</p>
+        {% endfor %} 
+            <b> Comments </b>
+        <div class="row">
+            <div class="col col-10"> 
+            <form method="POST" action=".">
+                    {% csrf_token %}
+                    <input type="text" name="comment" id="comment" placeholder="+ Add a Comment" class="form-control">
+                </div>
+                <div class="col col-2">
+                    <button class="btn btn-primary" type="submit" name="submit"> Comment
+                    </button>    
+                </form>
+            </div>
+        </div>
+        {% for i in obj_comment %}
+        <div class="container justify-content-center m-3">
+            <img src=" {{ i.comment.profile_image.url }}" width="20">
+            <span class=""><b>{{ i.comment.username }}</b></span>
+            <span class="text"> {{ i }}</span>
+        </div>   
+        {% endfor %}
+            <!--<div><span class="text3">Upvote?</span><span class="thumbup"><i class="fa fa-thumbs-o-up"></i></span><span class="text4">3</span></div>--> 
+    </div>    
+</div>
+
+
+
+{% endblock content %}
+
+
+
+<!--
+
+
+    <form method="POST" action=".">
+        {% csrf_token %}
+        <div class='row'>
+            <div class="col col-10">
+                <input type="text" name= "comment" class="form-control" id="comment">
+            </div>
+            <div class="col col-2">
+                <a href= "."><button class="btn btn-primary btn-sm" type="submit" name="submit"> Comment </button></a>
+            </div>
+        </div>
+    </form> 
+-->
+
+<!--
+<div class='container'>
+    
+    <div class="mx-auto" style="width: 500px;">
+        {% for i in obj %}    
+            {% if i.post_image %}
+                <img src="{{ i.post_image.url }}" class="card-img-top"</a>
+            {% endif %}
+            <a href="{{ i.get_absolute_url }}"></a>
+            <h5 class="card-title">{{i.username}}</h5></a>
+            <p class="card-text">{{ i.post_text }}</p>
+        {% endfor %} 
+            <b> Comments </b>
+            <div class="row">
+                <div class="mx-auto col-10"> 
+                    <form method="POST">
+                        {% csrf_token %}
+                        <input type="text" name="comment" id="comment" placeholder="+ Add a Comment" class="form-control">
+                    </div>
+                    <div class="mx-auto col-2">
+                        <button class="btn btn-primary" type="submit" name="submit"> Comment
+                        </button>    
+                    </div>
+                    </form>
+            </div>
+            {% for i in obj_comment %}
+        <div class="container justify-content-center m-3">
+            <img src=" {{ i.comment.profile_image.url }}" width="20">
+            <span class=""><b>{{ i.comment.username }}</b></span>
+            <span class="text"> {{ i }}</span>
+        </div>   
+            {% endfor %}
+            <!--<div><span class="text3">Upvote?</span><span class="thumbup"><i class="fa fa-thumbs-o-up"></i></span><span class="text4">3</span></div>--> 
+        </div>    
+    </div>
+     
+
+
+-->
+
+<!--
+
+<div class="row">    
+                <div class="col-2">
+                    <b>{{ i.comment.username }}</b>
+                </div>
+                <div class="col-10">
+                {{ i }}
+            </div>
+-->
+
+<!--
+<div class="container">
+ 
+        {% for i in obj %}
+            <ul>
+            <img src="{{ i.post_image.url }}" width=300>
+            {{ i.post_text }}
+            </ul>    
+    {% endfor %}
+</div>
+
+
+-->

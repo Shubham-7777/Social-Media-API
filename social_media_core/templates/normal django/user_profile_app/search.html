@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+<title> Search results </title>
+{% endblock title %}
+{% block content %}
+    <div class='container'>
+        <div class="mx-auto" style="width: 500px;">
+            {% for i in obj %}    
+                {% if i.post_image %}
+                <img src="{{ i.post_image.url }}" class="card-img-top"</a>
+                {% endif %}
+                <a href="{{ i.get_absolute_url }}">
+                <h5 class="card-title">{{i.username}}</h5></a>
+                <p class="card-text">{{ i.post_text }}</p>
+                <i class="bi bi-star"></i> 
+            {% endfor %}   
+            
+        </div>
+    </div>
+{%  endblock content %}
+<!--
+<div class='container'>
+    <div class="mx-auto" style="width: 500px;">
+        {% for i in obj %}    
+            {% if i.post_image %}
+            <img src="{{ i.post_image.url }}" class="card-img-top"</a>
+            {% endif %}
+            <a href="{{ i.get_absolute_url }}">
+            <h5 class="card-title">{{i.username}}</h5></a>
+            <p class="card-text">{{ i.post_text }}</p>
+            <i class="bi bi-star"></i> 
+        {% endfor %}   
+        
+    </div>
+</div>
+-->

@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container text-center">
+    <div class='row'> 
+        <h1> Friends</h1>
+            {% for i in friend %}
+            <div class="col-6 p-3">
+                <img class="img" src="{{ i.friend.profile_image.url }}" style="width: 150px;">
+                <h5>{{ i.friend.username }}</h5>
+                <!--<a href="{% url 'user_profile_app:send-request' i.friend.username %}" class="add-friend"> Add Friend</a>-->
+                {% if request.user.is_authenticated %}
+                    <a class= 'p-3' href="."> Accept </a>
+                    <a class= 'p-3' href="." name="Reject"> Reject </a>
+                {% endif %}
+            </div> 
+
+            {% endfor %}
+        <h1> Find-Friends</h1>
+        {% for i in find_friend %}
+            <div class="col-6 p-3">
+                <img class="img" src="{{ i.profile_image.url }}" style="width: 150px;">
+                <h5>{{ i.username }}</h5>
+                <a href="{% url 'user_profile_app:send-request' i.username %}" action="." class="add-friend" name="username"> Add Friend</a>
+            </div>
+
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
+
+<!--
+    {% url 'user_profile_app:reject_url' i.username.username %}
+    <a href="{% url 'user_profile_app:send-request' obj.username.username %}" class="add-friend" Add Friend</a>
+    <div class="container">
+    <h5> Friends </h5>    {% for i in obj %}
+        <div class="row">
+            <div class="col">
+                <img class="img" src="{{ i.profile_image.url }}" style="width: 100px;">
+                <h5> {{ i.username}}</h5>
+                <button class="btn btn-primary "> Add friend</button>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+-->
+
+<!--
+
+
+
+    <div class="container">
+    <div class="mx-auto">
+        {% for i in obj %}
+        <div class="container">
+            <div class="d-flex align-content-center"></div>
+                {% if i.post_image %}
+                    <a href="{{ i.get_absolute_url }}"> 
+                        <img src="{{ i.post_image.url }}">
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="container-username">
+            <h5 class="card-title m-2 p-2"> {{ i.username }}</h5>
+        </div>    
+        <div class="container-text">
+            <p class="card-text m-2">{{ i.post_text }}</p>  
+        </div>
+        <div class="container-comment"></div>  
+            <form method="POST" action=".">
+                {% csrf_token %}
+                <div class='row'>
+                    <div class="col-8">
+                        <input type="text" name= "comment" class="form-control" id="comment">
+                    </div>
+                    <div class="col-2">
+                        <a href= "."><button class="btn btn-primary" type="submit" name="submit"> Comment </button></a>
+                    </div>
+                </div>
+            </form>    
+        </div>
+        {% endfor %}
+    </div>     
+</div>
+-->

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+
+
+
+
+
+<div class='container'>
+    <div class="m-auto" style="width:400px;">
+        {% for i in obj %}
+            {% if i.profile_image %}
+                <img src="{{ i.profile_image.url }}" class="rounded-circle" alt=".">
+            {% endif %}
+                <h5 class="card-title">{{ i.username }}</h5>
+                <p class="card-text">{{ i.phone_no }}</p>
+                <p class="card-text">{{ i.e_mail }}</p>
+                <p class="card-text">{{ i.country }}</p>
+                <p class="card-text">{{ i.dob }}</p>
+                <button type="button" class="btn btn-primary">Edit</button>
+                <button type="button" class="btn btn-primary">Friends List</button>
+
+        {% endfor %}
+    </div> 
+</div>
+
+
+
+    
+
+
+
+{% endblock content %}
+<!--
+
+
+<div class='container'>
+    <div class="mx-auto" style="width:400px;">
+    {% for i in obj %}
+        {% if i.profile_image %}
+            <img src="{{ i.profile_image.url }}" class="rounded-circle" alt=".">
+        {% endif %}
+            <h4 class="card-title">{{ i.username }}</h4>
+            <p class="card-text">{{ i.phone_no }}</p>
+            <p class="card-text">{{ i.e_mail }}</p>
+            <p class="card-text">{{ i.country }}</p>
+            <p class="card-text">{{ i.dob }}</p>
+            <button type="button" class="btn btn-primary">Edit</button>
+            <button type="button" class="btn btn-danger">Delete</button>
+    {% endfor %}   
+    </div>    
+</div>
+-->

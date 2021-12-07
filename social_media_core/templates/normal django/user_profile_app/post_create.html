@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+<form method="POST" action="." enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+    <a href="/"> <button type="submit" name="submit"> Submit </button>
+    </a>
+</form>
+
+{% endblock content %}
+
+
+<!--
+<form method="POST" action="." enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="container">
+        <div class="row">
+            <div class='col-6 col-md-4' id='div_username'>
+                <label> Username </label>
+                {{ form.username }}
+            </div>        
+        </div>    
+        <div class='row'>        
+            <div class='col-6 col-md-4' id='div_slug'>
+                <label> slug </label>
+                {{ form.slug }}
+            </div>    
+        </div>    
+        <div class='row'>        
+            <div class='col-6 col-md-4' id='div_post_image'>
+            <label> Image </label>    
+                {{ form.post_image }}
+            </div>    
+        </div>    
+        <div class='row'>        
+            <div class='col-6 col-md-4' id='div_pos_text'>
+                
+                {{ form.post_text }}
+            </div>    
+        </div>    
+
+        <div class="col-6">
+            <button type="submit" class="btn btn-primary"> Submit</button>
+        </div>    
+    </div>    
+
+</form>    
+
+-->
+
+
+
+<!--
+
+    <form method="POST" action="." enctype="multipart/form-data">
+        {% csrf_token %}
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-5">
+                        {{ form | crispy }}
+                        <button type="submit" name="submit" class="btn btn-dark">Submit</button>
+                    </div>      
+                </div>
+            </div>    
+    </form>
+    
+
+
+
+-->

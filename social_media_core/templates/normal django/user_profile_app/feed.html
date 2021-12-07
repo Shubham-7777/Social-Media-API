@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% for i in obj %}
+<div class="container" style="width: 500px;">
+    <div class='row pt-3'>
+        <div class="col col-md-auto">    
+            <img src="{{ i.username.profile_image.url }}" width="30">
+        </div> 
+        <div class="col">  
+            <b>{{ i.username }}</b>
+        </div>
+    </div>  
+    <div class="py-3"> 
+        {% if i.post_image %}
+        <a href="{{ i.get_absolute_url }}"> 
+            <img src="{{ i.post_image.url }}" class="card-img-top" style="width: 500px;"></a>
+        {% endif %}
+    </div> 
+    <div class='d-flex bd-highlight'>
+        <div class="p-2 w-100 bd-highlight">
+            <i class="bi bi-heart-fill"></i>
+        </div>
+        <div class="p-2 flex-shrink-1 bd-highlightggo">
+            <i class="bi bi-three-dots-vertical"></i>
+        </div>    
+    </div>
+    <p class="card-text m-2">{{ i.post_text }}</p>    
+    <form method="POST" action=".">
+        {% csrf_token %}
+        <div class='row'>
+            <div class="col col-10">
+                <input type="text" name= "comment" class="form-control" id="comment">
+            </div>
+            <div class="col col-2">
+                <a href= "."><button class="btn btn-primary btn-sm" type="submit" name="submit"> Comment </button></a>
+            </div>
+        </div>
+    </form> 
+</div>
+{% endfor %}       
+
+
+
+{% endblock content %}
+<!--
+
+{% for i in obj %}
+<div class="container" style="width: 500px;">
+    <div class='row pt-3'>
+        <div class="col col-md-auto">    
+            <img src="{{ i.username.profile_image.url }}" width="30">
+        </div> 
+        <div class="col">  
+            <b>{{ i.username }}</b>
+        </div>
+    </div>  
+    <div class="py-3"> 
+        {% if i.post_image %}
+        <a href="{{ i.get_absolute_url }}"> 
+            <img src="{{ i.post_image.url }}" class="card-img-top" style="width: 500px;"></a>
+        {% endif %}
+    </div> 
+    <div class='d-flex bd-highlight'>
+        <div class="p-2 w-100 bd-highlight">
+            <i class="bi bi-heart-fill"></i>
+        </div>
+        <div class="p-2 flex-shrink-1 bd-highlightggo">
+            <i class="bi bi-three-dots-vertical"></i>
+        </div>    
+    </div>
+    <p class="card-text m-2">{{ i.post_text }}</p>    
+    <form method="POST" action=".">
+        {% csrf_token %}
+        <div class='row'>
+            <div class="col col-10">
+                <input type="text" name= "comment" class="form-control" id="comment">
+            </div>
+            <div class="col col-2">
+                <a href= "."><button class="btn btn-primary btn-sm" type="submit" name="submit"> Comment </button></a>
+            </div>
+        </div>
+    </form> 
+</div>
+{% endfor %}       
+
+
+
+
+-->

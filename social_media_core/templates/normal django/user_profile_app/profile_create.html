@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block title %}
+<title> Profile </title>
+
+{% endblock title %}
+
+{% block content %}
+
+<form method="POST" action="." enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+    <a href="/"> <button type="submit" name="submit"> Submit </button>
+    </a>
+</form>
+
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+<!--
+
+
+
+    <form method="POST" action="." enctype="multipart/form-data">
+        {% csrf_token %}
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-5"
+                        {{form | crispy}}
+                        <a href="/"> 
+                            <button type="submit" name="submit" class="btn btn-dark">Submit</button>
+
+                        </a>
+                    </div>
+                </div>
+            </div>
+    </form>
+
+-->
